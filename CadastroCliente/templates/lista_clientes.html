@@ -9,12 +9,19 @@
 </head>
 
 <body>
+    <img src="Logo_senac.jpg" alt="Logo Senac" />
     <h1>Clientes Senac - SMP</h1>
     <ul>
-        <li>Cliente A</li>
-        <li>Cliente B</li>
-        <li>Cliente 123</li>
-        <li>Cliente 789</li>
+        {% for cliente in clientes %} 
+        <li>{{cliente.nome}}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Lista de Profissões Senac - SMP</h1>
+    <ul>
+        {% for profissao in profissoes %} 
+        <li>{{profissao.nome}}</li>
+        {% endfor %}
     </ul>
 </body>
 
