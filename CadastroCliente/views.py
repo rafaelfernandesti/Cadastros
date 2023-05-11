@@ -19,3 +19,11 @@ def listar_clientes(request): #sempre insira o request como parâmetro aqui
         "profissoes": lista_profissoes,
     }
     return render(request, 'lista_clientes.html', context)
+
+def detalhar_cliente(request, id):
+    #buscando no banco de dados o cliente pelo id
+    cliente = Cliente.objects.get(id = id)
+    context = {
+        "cliente": cliente
+    }
+    return render(request, "cliente_detalhes.html", context)
