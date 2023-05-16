@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,11 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página inicial</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/estilos.css' %}">
 </head>
 
 <body>
-    <img src="../static/img/Logo_senac.jpg" alt="Logo Senac">
+    <img src="{% static '/img/Logo_senac.jpg'%}">
     <h1>Olá {{ nome }}!</h1>
+    <h2>Welcome to the jungle!</h2>
+    <h3>A new world!</h3>
+    <h4>A!</h4>
+    <h5>A new !</h5>
+    <h6 class="TextoLaranja">A new world!</h6>
     <label for="frutas">Escolha uma fruta:</label>
     <select>
         {% for fruta in frutas %}

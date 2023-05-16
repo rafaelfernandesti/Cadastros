@@ -1,0 +1,20 @@
+/* seletor universal */
+*{
+    /* background-color: #4eb0fa; */
+    color: #181c49;
+    font-size: 15px;
+    font-style: italic;
+}
+/* seletor de tag. Usa-se o nome da tag */
+h2, h3{
+    color: #06777f;
+    font-weight: bold;
+}
+/* seletor de classe (um dos mais comuns) Cria-se um nome e usa-se este nome onde quiser*/
+.TextoLaranja{
+    color: #fc4629;
+}
+/* seletor de ID, mesma coisa que o anterior, mas somente pode ser usado uma vez na página */
+#nomeDaClasse{
+
+}

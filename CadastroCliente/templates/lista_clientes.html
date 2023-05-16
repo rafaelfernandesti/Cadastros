@@ -1,3 +1,5 @@
+{% load static %}
+<!-- linha acima incluída para que possa trabalhar com arquivos estáticos -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,7 +11,11 @@
 </head>
 
 <body>
-    <img src="../static/img/Logo_senac.jpg" alt="Logo Senac" />
+    <!-- EM HTML 
+    <img src="../static/img/Logo_senac.jpg" alt="Logo Senac" />-->
+
+    <!-- Em Django -->
+    <img src="{%static'/img/Logo_senac.jpg'}">
     <h1>Clientes Senac - SMP</h1>
     <ul>
         {% for cliente in clientes %} 
