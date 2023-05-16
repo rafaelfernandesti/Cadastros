@@ -1,10 +1,10 @@
 from django.contrib import admin
-from CadastroCliente.models import Cliente, Profissao, Telefone
+from CadastroCliente.models import Cliente, Interesse, Profissao, Telefone
 # Register your models here.
 
 class Telefones(admin.StackedInline):
     model = Telefone
-    extra = 4
+    extra = 1
 
 class ClienteAdmin(admin.ModelAdmin):
     #colunas exibidas
@@ -21,3 +21,4 @@ class ClienteAdmin(admin.ModelAdmin):
 admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(Telefone)
 admin.site.register(Profissao)
+admin.site.register(Interesse)

@@ -1,4 +1,5 @@
 from django.db import models
+
 class Profissao(models.Model):
     nome = models.CharField(max_length=30)
 
@@ -10,7 +11,12 @@ class Profissao(models.Model):
     #a função abaixo serve para sobrescrever a função original str e exibir na listagem o nome do cliente
     def __str__(self):
         return self.nome
-
+    
+class Interesse(models.Model):
+    nome = models.CharField(max_length=20)
+    def __str__(self):
+        return self.nome
+    
 # Create your models here.
 class Cliente(models.Model):
     ESTADO_CIVIL = [
@@ -38,6 +44,7 @@ class Cliente(models.Model):
         blank=True, null=True,
         verbose_name="Profissão"
     )
+    interesses = models.ManyToManyField(Interesse)
 
 class Telefone(models.Model):
     ddd = models.CharField(max_length=2)
@@ -45,3 +52,4 @@ class Telefone(models.Model):
     id_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     def __str__(self):
         return f"({self.ddd}) {self.numero}"
+

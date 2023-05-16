@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from CadastroCliente.models import Cliente, Profissao
+from CadastroCliente.models import Cliente, Profissao, Telefone
 # Create your views here.
 def index(request):
     meu_nome = "Rafael Fernandes"
@@ -23,7 +23,9 @@ def listar_clientes(request): #sempre insira o request como parâmetro aqui
 def detalhar_cliente(request, id):
     #buscando no banco de dados o cliente pelo id
     cliente = Cliente.objects.get(id = id)
+    telefones = Telefone.objects.filter(id_cliente_id = id) #adicionamos esta linha para obter todos os telefones de um cliente específico
     context = {
-        "cliente": cliente
+        "cliente": cliente,
+        "telefones":telefones
     }
     return render(request, "cliente_detalhes.html", context)

@@ -1,26 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do cliente</title>
+
 </head>
-<body style="background-color: #343434;">
-    <h1 style="color: burlywood;">Fulano da Silva</h1>
-    <table border="1" style="color: antiquewhite; border-spacing: 1em; border-color: coral;">
+
+<body class="container">
+    <h1>Fulano da Silva</h1>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <td>Matrícula:</td>
+            <td>{{cliente.matricula}}</td>
+        </tr>
         <tr>
             <td>Nome:</td>
             <td>{{cliente.nome}}</td>
         </tr>
         <tr>
+            <td>Profissão:</td>
+            <td>{{cliente.profissao}}</td>
+        </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td>{{cliente.email}}</td>
+        </tr>
+        <tr>
             <td>Data de Nascimento:</td>
-            <td>{{cliente.data_nascimento}}</td>
+            <td>{{cliente.data_nascimento|date:"d/m/Y"}}</td>
+        </tr>
+        <tr>
+            <td>CPF:</td>
+            <td>{{cliente.cpf}}</td>
         </tr>
         <tr>
             <td>Endereço:</td>
-            <td>Av. Marechal, 1500, São Miguel, São Paulo</td>
+            <td>{{cliente.endereco}}, {{cliente.nro}} - Bairro: {{cliente.bairro}} - Cidade: {{cliente.cidade}}. CEP:
+                {{cliente.cep}}</td>
+        </tr>
+
+        <tr>
+            <td>Renda Mensal:</td>
+            <td>{{cliente.renda_mensal}}</td>
+        </tr>
+        <tr>
+            <td>Estado Civil:</td>
+            <td>{{cliente.get_estado_civil_display}}</td>
+        </tr>
+        <tr>
+            <td>Interesses:</td>
+            <td>{{cliente.interesses.all|join:"<br>"}}</td>
+        </tr>
+        <tr>
+            <td>Ativo:</td>
+            <td><input class="form-check-input" type="checkbox">
+                {{cliente.ativo}}</td>
+        </tr>
+        <tr>
+            <td>Telefones:</td>
+            <td>{% for tel in telefones %}
+                {{tel}} <br />
+                {% endfor %}
+            </td>
         </tr>
     </table>
 </body>
+
 </html>
